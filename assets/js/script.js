@@ -1,9 +1,9 @@
 // assets/js/script.js
 
 // Referencias a los elementos HTML
-const toggleFormButton = document.getElementById('toggleFormButton');
+const agregaTareaButton = document.getElementById('agregaTareaButton');
 const taskForm = document.getElementById('taskForm');
-const taskInput = document.getElementById('nuevaTarea');
+const nuevaTarea = document.getElementById('nuevaTarea');
 const taskTableBody = document.getElementById('cuerpo-tabla');
 
 let tareas = [
@@ -13,7 +13,7 @@ let tareas = [
 ];
 
 // Función para mostrar/ocultar el formulario
-toggleFormButton.addEventListener('click', () => {
+agregaTareaButton.addEventListener('click', () => {
     taskForm.style.display = taskForm.style.display === 'none' ? 'block' : 'none';
 });
 
@@ -21,25 +21,25 @@ toggleFormButton.addEventListener('click', () => {
 taskForm.addEventListener('submit', (event) => {
     event.preventDefault(); // Prevenir que el formulario se envíe
 
-    const newTask = taskInput.value.trim(); // Obtener el valor ingresado
+    const newTask = nuevaTarea.value.trim(); // Obtener el valor ingresado
 
     if (newTask !== '') {
         tareas.push({ tarea: newTask }); // Agregar la tarea al arreglo
         renderTasks(); // Actualizar la tabla
-        taskInput.value = ''; // Limpiar el formulario
+        nuevaTarea.value = ''; // Limpiar el formulario
         taskForm.style.display = 'none'; // Ocultar el formulario
     }
 
-    const toggleFormButton = document.getElementById('toggleFormButton'); // Referencia al botón
+    const agregaTareaButton = document.getElementById('agregaTareaButton'); // Referencia al botón
     const taskForm = document.getElementById('taskForm'); // Referencia al formulario
 
-    toggleFormButton.addEventListener('click', () => {
+    agregaTareaButton.addEventListener('click', () => {
     taskForm.style.display = taskForm.style.display === 'none' ? 'block' : 'none';
 
     taskForm.addEventListener('submit', (event) => {
         event.preventDefault(); // Prevenir que el formulario se envíe por defecto
     
-        const newTask = taskInput.value.trim(); // Obtener el valor de la nueva tarea
+        const newTask = nuevaTarea.value.trim(); // Obtener el valor de la nueva tarea
     
         if (newTask !== '') {
             tareas.push({ tarea: newTask }); // Agregar la nueva tarea al arreglo
